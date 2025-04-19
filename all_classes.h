@@ -33,7 +33,7 @@ public:
         for(auto& obs : observers_)
             obs->update(message, pr);
     }
-    void warning(const std::string& message) {Notify(message, Warning);}
+    void warning(const std::string& message) {Notify(message, Warning);} //FAT INTERFACE? SOLID PRINCIPLE BROKEN
     void error(const std::string& message) {Notify(message, Error);}
     void fatalError(const std::string& message) {Notify(message, Fatal);}
 };
