@@ -12,7 +12,7 @@ enum Problem {Warning, Error, Fatal};
 
 class Observer{
 public:
-    virtual void update(const std::string& message, Problem pr) = 0;
+    virtual void update(const std::string& message, Problem pr) = 0; //FAT INTERFACE? SOLID PRINCIPLE BROKEN
     virtual void onError(const std::string& message) {};
     virtual void onFatalError(const std::string& message) {};
     virtual void onWarning(const std::string& message) {std::cout << "This is a warning! " << message << std::endl;};
@@ -33,7 +33,7 @@ public:
         for(auto& obs : observers_)
             obs->update(message, pr);
     }
-    void warning(const std::string& message) {Notify(message, Warning);} //FAT INTERFACE? SOLID PRINCIPLE BROKEN
+    void warning(const std::string& message) {Notify(message, Warning);}
     void error(const std::string& message) {Notify(message, Error);}
     void fatalError(const std::string& message) {Notify(message, Fatal);}
 };
