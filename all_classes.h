@@ -69,7 +69,7 @@ public:
         if(pr == Fatal){ onFatalError(message);}
     }
     void onFatalError(const std::string& message) override {
-        std::cout << "This is fatal error: " << message << ", printing to file" << std::endl;
+        std::cout << "This is a fatal error: " << message << ", printing to file" << std::endl;
         std::ofstream fout;
         fout.open(file_name_);
         fout << message << std::endl;
